@@ -1,0 +1,29 @@
+{
+  "name": "productsmanagment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SagarMaan/project-productsManagementGroup13.git"
+  },
+  "author": "Soumya Ranjan Pradhan , Vishal Sharma , Abhishek Chauhan , Aditya Prajapati , Sagar Maan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SagarMaan/project-productsManagementGroup13/issues"
+  },
+  "homepage": "https://github.com/SagarMaan/project-productsManagementGroup13#readme",
+  "description": "",
+  "dependencies": {
+    "aws-sdk": "^2.1307.0",
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.20"
+  }
+}
