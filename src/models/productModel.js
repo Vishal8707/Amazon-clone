@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
-const productSchema = new mongoose.Schema({
+
+
+const productSchema = new mongoose.Schema(
+    {
     title: {
         type: String,
         required: true,
@@ -32,7 +35,8 @@ const productSchema = new mongoose.Schema({
 
     isFreeShipping: {
         type: Boolean,
-        default: false
+        default: false,
+        trim:true
     },
 
     productImage: {
@@ -48,7 +52,9 @@ const productSchema = new mongoose.Schema({
     availableSizes: {
         type: [String],
         enum: ["S", "XS", "M", "X", "L", "XXL", "XL"],
-        required: true
+        required: true,
+        trim:true,
+        toUpperCase:true
     },
 
     installments: {

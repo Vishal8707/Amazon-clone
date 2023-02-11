@@ -2,7 +2,12 @@
 
 
 const validateName = (name) => {
-    return (/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i.test(name));
+  return (/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i.test(name))
+}
+
+
+const validateDescription = (title) => {
+  return ( /^[a-z A-Z0-9_]{3,30}$/.test(title))
 }
 
 
@@ -10,7 +15,7 @@ const validateName = (name) => {
 
 
 const validateEmail = (email) => {
-    return (/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/.test(email));
+  return (/^[a-z]{1}[a-z0-9._]{1,100}[@]{1}[a-z]{2,15}[.]{1}[a-z]{2,10}$/.test(email))
 }
 
 
@@ -18,7 +23,7 @@ const validateEmail = (email) => {
 
 
 const validatePassword = (password) => {
-    return (/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/.test(password));
+  return (/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/.test(password));
 }
 
 
@@ -26,7 +31,7 @@ const validatePassword = (password) => {
 
 
 const validateMobileNo = (Number) => {
-    return ((/^((\+91)?|91)?[6789][0-9]{9}$/g).test(Number));
+  return ((/^((\+91)?|91)?[6789][0-9]{9}$/g).test(Number));
 }
 
 
@@ -34,19 +39,48 @@ const validateMobileNo = (Number) => {
 
 
 const validatePincode = (pincode) => {
-    return (/^[1-9][0-9]{5}$/).test(pincode);
+  return ((/^[1-9][0-9]{5}$/).test(pincode));
 }
-
-
-
 
 
 //===================================== Place Regex Validation ===================================//
 
 
 const validatePlace = (value) => {
-    return (/^[^\W\d_]+\.?(?:[-\s'’][^\W\d_]+\.?)*$/).test(value);
+  return ((/^[^\W\d_]+\.?(?:[-\s'’][^\W\d_]+\.?)*$/).test(value));
 }
 
 
-module.exports = { validateName, validateEmail, validatePassword, validateMobileNo, validatePincode, validatePlace }
+// ===================================== Image validation ====================================== //
+
+
+const ValidateFile = (value) => { 
+  return ((/\.(gif|jpeg?|jpg?|tiff?|png|webp|bmp)$/).test(value));
+}
+
+
+// ===================================== Style validation ====================================== //
+
+
+const ValidateStyle =  (value) => {
+  return ((/^[a-zA-Z _.-]+$/).test(value));
+};
+
+
+// ===================================== Price validation ====================================== //
+
+
+const validatePrice =  (price) => {
+  return ((/^\d{0,8}(\.\d{1,9})?$/).test(price));
+};
+
+
+// ===================================== Status validation ====================================== //
+
+
+const ValidateStatus = (value) => { 
+  return (['pending', 'completed', 'cancelled'].indexOf(value)) !== -1 
+}
+
+
+module.exports = { validateName , validateEmail , validatePassword , validateMobileNo , validatePincode , validatePlace , validatePrice ,  ValidateStyle , ValidateFile , validateDescription , ValidateStatus }

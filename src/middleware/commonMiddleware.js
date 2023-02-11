@@ -38,7 +38,6 @@ const isAuthenticated = async function ( req , res , next ) {
 }
 
 
-
 //================================ Autherisation ===========================//
 
 
@@ -86,7 +85,7 @@ const isAuthorized = async function ( req , res , next ) {
                 return res.status(404).send({ status: false, message: "Data Not found with this user id, Please enter a valid user id" });
             }
 
-            let authenticatedUserId = checkuserId.userId;
+            let authenticatedUserId = checkuserId._id;
             
             if ( authenticatedUserId != loggedUserId ) {
                 return res.status(403).send({ status: false, message: "Not authorized,please provide your own user id" });
